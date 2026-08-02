@@ -16,16 +16,14 @@ const chat = async (req, res) => {
             reply: response.text
         });
 
-    } catch (error) {
+    catch (error) {
+    console.error(error);
 
-        console.error(error);
-
-        res.status(500).json({
-            success: false,
-            error: "Error interno"
-        });
-
-    }
+    res.status(500).json({
+        success: false,
+        error: error.message
+    });
+}
 
 };
 
