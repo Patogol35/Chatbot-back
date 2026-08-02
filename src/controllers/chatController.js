@@ -6,7 +6,8 @@ const chat = async (req, res) => {
 
         const response = await ai.models.generateContent({
         
-            model: "gemini-2.5-pro",
+            
+            model: "gemini-2.0-flash",
             contents: message
         });
 
