@@ -1,9 +1,7 @@
 const ai = require("../config/gemini");
 
 const chat = async (req, res) => {
-
     try {
-
         const { message } = req.body;
 
         const response = await ai.models.generateContent({
@@ -16,15 +14,14 @@ const chat = async (req, res) => {
             reply: response.text
         });
 
-    catch (error) {
-    console.error(error);
+    } catch (error) {
+        console.error(error);
 
-    res.status(500).json({
-        success: false,
-        error: error.message
-    });
-}
-
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
 };
 
 module.exports = { chat };
