@@ -1,13 +1,13 @@
 const ai = require("../config/gemini");
 
 const chat = async (req, res) => {
+
     try {
+
         const { message } = req.body;
 
         const response = await ai.models.generateContent({
-        
-            
-            model: "gemini-2.0-flash",
+            model: "gemini-2.5-flash",
             contents: message
         });
 
@@ -17,13 +17,16 @@ const chat = async (req, res) => {
         });
 
     } catch (error) {
+
         console.error(error);
 
         res.status(500).json({
             success: false,
-            error: error.message
+            error: "Error interno"
         });
+
     }
+
 };
 
 module.exports = { chat };
